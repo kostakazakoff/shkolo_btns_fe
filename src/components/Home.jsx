@@ -32,7 +32,7 @@ const Home = () => {
 
     const handleRightClickEvent = (e) => {
         e.preventDefault();
-        navigate(Path.EDIT, { state: data[e.target.id-1] });
+        navigate(Path.EDIT, { state: data[e.target.id - 1] });
     };
 
     return (
@@ -47,6 +47,7 @@ const Home = () => {
                         to={data.link ? data.link : "#"}
                         style={{
                             backgroundColor: data.color ? data.color : "white",
+                            borderColor: data.color && data.color,
                             color: data.color ? "white" : "black"
                         }}
                         onContextMenu={handleRightClickEvent}

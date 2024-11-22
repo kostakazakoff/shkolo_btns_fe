@@ -15,7 +15,8 @@ const Edit = () => {
     const color = btn.color;
 
     const standardColors = [
-        'silver', 'gray', 'maroon', 'red', 'purple', 'fuchsia',
+        'silver', 'gray', 'maroon',
+        'red', 'purple', 'fuchsia',
         'green', 'lime', 'olive',
         'navy', 'blue', 'teal', 'aqua'
     ];
@@ -51,48 +52,49 @@ const Edit = () => {
     };
 
     return (
-        <form className="container">
+        <form className="form-container">
 
-            <div>
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Button Title</label>
                 <input
                     type="text"
                     id="title"
+                    className="input_field"
                     value={title ? title : ''}
                     onChange={handleInputChange}
                 />
 
-                <label htmlFor="link">Link</label>
+                <label htmlFor="link">Button Link</label>
                 <input
                     type="url"
                     id="link"
+                    className="input_field"
                     value={link ? link : ''}
                     onChange={handleInputChange}
                 />
 
-                <label htmlFor="color">Color</label>
+                <label htmlFor="color">Button Color</label>
                 <select
                     id='color'
+                    className="input_field"
                     onChange={handleInputChange}
                     defaultChecked={color}
                 >
                     <option value={color}>{color}</option>
-                    {standardColors.map(c => (
-                        <option key={c} value={c}>{c}</option>
+                    {standardColors.map(color => (
+                        <option key={color} value={color}>{color}</option>
                     ))}
                 </select>
-            </div>
 
             <section className="btn-container">
                 <button
-                    className="btn"
+                    className="btn btn-submit"
                     onClick={submitHandler}
                 >
                     Save
                 </button>
 
                 <button
-                    className="btn"
+                    className="btn btn-reset"
                     onClick={handleClear}
                 >
                     Clear

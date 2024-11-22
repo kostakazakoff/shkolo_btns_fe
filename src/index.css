@@ -6,7 +6,25 @@
   font-weight: 400;
   color-scheme: light dark;
   color: darkblue;
-  background-color: lightgray;
+  background-color: azure;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.input_field {
+    width: 300px;
+    height: 40px;
+    background: rgb(255, 255, 255);
+    color: black;
+    padding: 4px 12px;
+    border: 1px solid #E1E2E9;
+    border-radius: 4px;
+}
+
+label {
+  color: black;
 }
 
 .container {
@@ -26,7 +44,7 @@
   border-radius: 4px;
   flex: 1 0 25%;
   border-radius: 8px;
-  border: none;
+  border: 1px solid aqua;
   padding: 0.6em 1.2em;
   font-size: 1.5em;
   font-weight: 500;
@@ -45,6 +63,36 @@
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
   transform: translate(-2px, -2px);
   transition: all 200ms ease-in-out;
+}
+
+.btn-submit {
+  background-color: aqua;
+}
+
+.btn-reset {
+  background-color: coral;
+}
+
+.form-container {
+  margin: 0;
+  padding: 80px 80px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.btn-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* @media (max-width: 800px) {
