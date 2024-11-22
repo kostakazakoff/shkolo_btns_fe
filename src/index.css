@@ -6,7 +6,7 @@
   font-weight: 400;
   color-scheme: light dark;
   color: darkblue;
-  background-color: azure;
+  background-color: rgb(230, 230, 230);
 }
 
 ::-webkit-scrollbar {
@@ -44,7 +44,7 @@ label {
   border-radius: 4px;
   flex: 1 0 25%;
   border-radius: 8px;
-  border: 1px solid aqua;
+  border: 1px solid darkgray;
   padding: 0.6em 1.2em;
   font-size: 1.5em;
   font-weight: 500;

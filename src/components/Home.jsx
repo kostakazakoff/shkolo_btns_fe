@@ -46,7 +46,7 @@ const Home = () => {
                         className="btn"
                         to={data.link ? data.link : "#"}
                         style={{
-                            backgroundColor: data.color ? data.color : "white",
+                            backgroundColor: data.color ? data.color : "none",
                             borderColor: data.color && data.color,
                             color: data.color ? "white" : "black"
                         }}
