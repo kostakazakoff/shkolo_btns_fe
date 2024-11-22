@@ -6,34 +6,39 @@ import Path from "../helpers/paths.js"
 
 
 const Home = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const navigate = useNavigate();
     const location = useLocation();
+    const state = location.state;
 
     useEffect(() => {
         be.get('/')
             .then(response => response.data)
             .then(result => {
-                const newData = result.data;
-                setData(newData);
+                const buttons = result.data;
+                if (state) {
+                    console.log(state);
+                    buttons[state.id - 1] = state;
+                }
+                setData(buttons);
             })
-            .catch(error => console.log(error));
-    }, [location.state]);
+            .catch(error => console.log(error))
+    }, [state]);
 
-    // useEffect(() => {
-    //     console.log(data);
-    // }, [data]);
+    useEffect(() => {
+        console.log(typeof (data));
+        console.log(data);
+    }, [data]);
 
     const handleRightClickEvent = (e) => {
         e.preventDefault();
-        navigate(Path.EDIT, { state: data[e.target.id - 1] });
+        navigate(Path.EDIT, { state: data[e.target.id-1] });
     };
 
     return (
         <>
             <section className="container">
-
-                {data && data.map(data => (
+                {data ? data.map(data => (
                     <Link
                         key={data.id}
                         id={data.id}
@@ -48,8 +53,9 @@ const Home = () => {
                     >
                         {data.title ? data.title : "Right click to edit"}
                     </Link>
-                ))}
-
+                ))
+                    : "Loading..."
+                }
             </section>
         </>
     );

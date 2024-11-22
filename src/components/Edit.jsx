@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import be from "../helpers/Api.js";
 import Path from "../helpers/paths.js";
 
@@ -9,16 +9,20 @@ const Edit = () => {
     const location = useLocation();
     const [btn, setBtn] = useState(location.state);
 
+    const id = btn.id;
     const title = btn.title;
     const link = btn.link;
     const color = btn.color;
 
     const standardColors = [
-        'silver', 'gray', 'white',
-        'maroon', 'red', 'purple', 'fuchsia',
-        'green', 'lime', 'olive', 'yellow',
+        'silver', 'gray', 'maroon', 'red', 'purple', 'fuchsia',
+        'green', 'lime', 'olive',
         'navy', 'blue', 'teal', 'aqua'
     ];
+
+    useEffect(() => {
+        console.log(location);
+    }, [location]);
 
     const handleInputChange = (e) => {
         const k = e.target.id;
@@ -26,13 +30,24 @@ const Edit = () => {
         setBtn(oldState => ({ ...oldState, [k]: v }));
     };
 
-    // useEffect(() => { console.log(btn) }, [btn]);
+    const handleClear = (e) => {
+        e.preventDefault();
+        be.post('/' + id + '/clear')
+        .then(setBtn(oldState => ({
+             ...oldState,
+             'title': null,
+             'link': null,
+             'color': null
+            })))
+            .catch(err => console.log(err))
+            // .then(navigate(Path.HOME));
+    }
 
     const submitHandler = (e) => {
         e.preventDefault();
-        be.post('/' + btn.id + '/update', btn)
+        be.post('/' + id + '/update', btn)
             .catch(err => console.log(err))
-            navigate(Path.HOME, { state: btn });
+            .then(navigate(Path.HOME, { state: btn }));
     };
 
     return (
@@ -51,7 +66,7 @@ const Edit = () => {
                 <input
                     type="url"
                     id="link"
-                    value={link}
+                    value={link ? link : ''}
                     onChange={handleInputChange}
                 />
 
@@ -75,6 +90,21 @@ const Edit = () => {
                 >
                     Save
                 </button>
+
+                <button
+                    className="btn"
+                    onClick={handleClear}
+                >
+                    Clear
+                </button>
+
+                <Link
+                    type="button"
+                    className="btn"
+                    to={Path.HOME}
+                >
+                    Cancel
+                </Link>
             </section>
         </form>
     );
