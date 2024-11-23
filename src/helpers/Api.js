@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const be = axios.create({
-    baseURL: 'http://localhost:8000/api/buttons',
+    baseURL: 'http://api.kazakoff.site/api/buttons',
     withCredentials: true,
     withXSRFToken: true,
     headers: {
