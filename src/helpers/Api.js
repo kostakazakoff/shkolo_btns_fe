@@ -6,7 +6,7 @@ const origin = import.meta.env.VITE_API_BASE_URL
 
 const be = axios.create({
     baseURL: `${origin}/api/buttons`,
-    withCredentials: true,
+    // withCredentials: true,
     withXSRFToken: true,
     headers: {
         'Accept': 'application/json',
