@@ -9,6 +9,7 @@ const be = axios.create({
     // withCredentials: true,
     withXSRFToken: true,
     headers: {
+        'Origin': origin,
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     },
