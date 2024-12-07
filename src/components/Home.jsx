@@ -17,18 +17,12 @@ const Home = () => {
             .then(result => {
                 const buttons = result.data;
                 if (state) {
-                    console.log(state);
                     buttons[state.id - 1] = state;
                 }
                 setData(buttons);
             })
             .catch(error => console.log(error))
     }, [state]);
-
-    useEffect(() => {
-        console.log(typeof (data));
-        console.log(data);
-    }, [data]);
 
     const handleRightClickEvent = (e) => {
         e.preventDefault();
