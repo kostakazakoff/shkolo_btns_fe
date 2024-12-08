@@ -39,6 +39,7 @@ const Home = () => {
                         type="button"
                         className="btn"
                         to={data.link ? data.link : "#"}
+                        target="_blank"
                         style={{
                             backgroundColor: data.color ? data.color : "none",
                             borderColor: data.color && data.color,
