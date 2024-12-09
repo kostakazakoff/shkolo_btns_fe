@@ -19,7 +19,7 @@
     background: rgb(255, 255, 255);
     color: black;
     padding: 4px 12px;
-    border: 1px solid #E1E2E9;
+    border: none;
     border-radius: 4px;
 }
 
@@ -39,8 +39,22 @@ label {
   min-height: 100vh;
 }
 
+.form-container {
+  margin: 0;
+  padding: 80px 80px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
 .btn {
   background-color: white;
+  color: black;
   border-radius: 4px;
   flex: 1 0 25%;
   border-radius: 8px;
@@ -67,24 +81,11 @@ label {
 }
 
 .btn-submit {
-  background-color: aqua;
+  background-color: rgb(5, 128, 128);
 }
 
 .btn-reset {
-  background-color: coral;
-}
-
-.form-container {
-  margin: 0;
-  padding: 80px 80px 80px 80px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: rgb(230, 76, 20);
 }
 
 .btn-container {
@@ -104,5 +105,27 @@ label {
 
   .container {
     padding: 50px;
+  }
+
+  .form-container {
+    margin: 0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    min-height: 100vh;
+  }
+
+  .input_field {
+      width: 200px;
+      height: 40px;
+      background: rgb(255, 255, 255);
+      color: black;
+      padding: 4px 12px;
+      border-radius: 4px;
   }
 }
