@@ -41,7 +41,6 @@ const Edit = () => {
              'color': null
             })))
             .catch(err => console.log(err))
-            // .then(navigate(Path.HOME));
     }
 
     const submitHandler = (e) => {
