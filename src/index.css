@@ -55,10 +55,10 @@ label {
 .btn {
   background-color: white;
   color: black;
-  border-radius: 4px;
-  flex: 1 0 25%;
+  border: none;
   border-radius: 8px;
-  border: 1px solid darkgray;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+  flex: 1 0 25%;
   padding: 0.6em 1.2em;
   font-size: 1.5em;
   font-weight: 500;
@@ -75,17 +75,21 @@ label {
 }
 
 .btn:hover {
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
-  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
+  transform: translate(-4px, -4px);
   transition: all 200ms ease-in-out;
 }
 
 .btn-submit {
-  background-color: rgb(5, 128, 128);
+  background-color: rgb(0, 165, 165);
+  color: white;
+  border: none;
 }
 
 .btn-reset {
   background-color: rgb(230, 76, 20);
+  color: white;
+  border: none;
 }
 
 .btn-container {
