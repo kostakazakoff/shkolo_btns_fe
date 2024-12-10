@@ -6,7 +6,7 @@ import Path from "../helpers/paths.js"
 
 
 const Home = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
     const navigate = useNavigate();
     const location = useLocation();
     const state = location.state;
@@ -19,7 +19,10 @@ const Home = () => {
                 if (state) {
                     buttons[state.id - 1] = state;
                 }
-                setData(buttons);
+                setData(oldState =>({
+                    ...oldState,
+                    ...buttons,
+                }));
             })
             .catch(error => console.log(error))
     }, [state]);
@@ -32,7 +35,7 @@ const Home = () => {
     return (
         <>
             <section className="container">
-                {data ? data.map(data => (
+                {data ? Object.values(data).map(data => (
                     <Link
                         key={data.id}
                         id={data.id}
