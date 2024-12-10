@@ -1,11 +1,8 @@
 import axios from "axios";
-
-const origin = import.meta.env.VITE_API_BASE_URL
-? import.meta.env.VITE_API_BASE_URL
-: 'http://localhost:8000'
+import Path from "./paths";
 
 const be = axios.create({
-    baseURL: `${origin}/api/buttons`,
+    baseURL: `${Path.ORIGIN}/api/buttons`,
     // withCredentials: true,
     withXSRFToken: true,
     headers: {
